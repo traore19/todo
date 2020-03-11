@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h1 class="mt-5 mb-5">{{title | uppercase}}</h1>
+      <div class="text-center">
+        <div class="mb-5">
+          <input type="text" #newTodo>
+          <button class="ml-1" (click)="addTodo(newTodo.value); newTodo.value=''">Add</button>
+
+        </div>
+
+        <table class="table table-bordered">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Label</th>
+              <th scode="col">Priority</th>
+              <th scope="col">Done</th>
+              <th scope="col">Action</th>
+            </tr>
+
+          </thead>
+          <tbody>
+            <tr *ngFor="let todo of todos">
+              <td>{{todo.label}}</td>
+              <td>{{todo.priority}}</td>
+              <td>{{todo.done ? '&#10003;' : '&#10005;'}}</td>
+              <td>
+                <i class="fa fa-check-circle" aria-hidden="true"></i>
+
+              </td>
+              <td>
+                <button (click)="deleteTodo(todo)">delete</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
